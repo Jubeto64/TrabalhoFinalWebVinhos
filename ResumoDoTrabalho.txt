@@ -1,0 +1,50 @@
+Sistema para cadastramento, avaliação e consulta de vinhos, semelhante ao Vivino (www.vivino.com)
+
+Cadastramento de vinhos:
+- Upload da imagem do rótulo da garrafa
+- Usuário deverá digitar o nome do produtor (vinícola) e o nome do vinho
+- No processo de digitação, deve-se utilizar um mecanismo de sugestão que mostra nomes similares já cadastrados.
+- usuário cadastra os rótulos que possui
+- os rótulos cadastrados passam a fazer parte de uma lista individual de cada usuário, chamada “Meus Vinhos”, sendo que um mesmo vinho pode constar em várias listas.
+- não será necessário digitar o ano do rótulo (safra).
+- No momento do cadastramento, deve-se informar:
+    - o país de origem;
+    - o tipo do vinho (tinto, branco, rosé, etc.);
+    - o tipo de uva (ou blend, se for uma mistura de uvas);
+    - a harmonização com comidas.
+- deve ser possível modificar essas informações ou acrescentar novas
+- cadastramento de novos vinhos só pode ser feito por usuários previamente cadastrados
+- Obs: Também precisará do preço para as consultas
+
+Cadastramento de usuários:
+- email e senha.
+- ao fazer login, aparece seu nome no topo da tela e, ao lado, aparece o link “Meus Vinhos”
+- Ao clicar em Meus Vinhos, o usuário vê os rótulos que cadastrou
+- Ao clicar em um rótulo, ele deve ver todas as informações do vinho e deve também ser capaz de avaliá-lo, com uma nota de 0 a 5.
+- Opcionalmente, o usuário pode escrever uma avaliação (review) do vinho.
+- avaliação numérica e o review, após serem submetidos, passam a aparecer para os demais usuários quando consultarem o vinho avaliado.
+
+Navegação sem fazer login:
+- apenas fazer consultas
+- deve aparecer em todas as páginas opões para realizar Login e Sign up
+
+Consulta de Vinhos:
+- mecanismo de consulta avançada quando se seleciona “Vinhos” e depois “Ver todos os vinhos”.
+- Na página principal deve haver:
+    - uma interface que permita a seleção do tipo de vinho,
+    - um slider para seleção do intervalo de preço
+    - check buttons que permitam a seleção das estrelas.
+    - Utilizando check buttons é possível, por exemplo, checar 3, 4 e 5, trazendo vinhos a partir de 3 estrelas.
+- deve também ser possível selecionar vinhos por:
+    - região e/ou país;
+    - tipo do vinho;
+    - tipo de uva;
+    - harmonização com comidas.
+- A modificação dos parâmetros de consulta deve resultar na atualização da lista de vinhos exibida.
+
+Reviews:
+- Ao exibir um vinho, deve-se mostrar:
+    - a média de suas avaliações (número de estrelas)
+    - seus reviews, sendo que cada review deve ser identificado.
+- Ao clicar no nome associado ao review, o site deve ir para a página do revisor
+- Na página do revisor deve exibir todas as suas revisões, aparecendo primeiro as mais recentes.
