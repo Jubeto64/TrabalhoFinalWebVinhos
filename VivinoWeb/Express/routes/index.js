@@ -12,12 +12,12 @@ router.post('/login', function (req, res, next){
   }
   var Usuarios = db.Mongoose.model('user', db.UserSchema, 'user');
   Usuarios.find(filtro).lean().exec(function(e, docs){
-    if(!e){
+    if(!e && docs.length > 0){
       var token = jwt.sign({ data: docs}, 'secret');
       res.send({status: 1, data: docs, token: token});
     } else {
-      console.log(e);
-      res.send({status: 0, data:err});
+      console.log("Erro ao fazer login!");
+      res.send({status: 0, data: e});
     }
   })
 });
@@ -30,7 +30,6 @@ router.post('/registrar', function (req, res, next){
     }
     var Usuarios = db.Mongoose.model('user', db.UserSchema, 'user');
     var novo_usuario = new Usuarios(novo);
-    console.log(novo_usuario);
     novo_usuario.save(function (err){
       if(err){
         console.log("Error " + err.message);
