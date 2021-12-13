@@ -45,6 +45,10 @@ router.post('/registrar', function (req, res, next){
     });
 });
 
+router.get('/get_nome_usuario', function(req, res){
+  
+})
+
 router.post('/adiciona_vinho', function(req, res){
   var novo = { 
     Vinicola: req.body.vineyard, 

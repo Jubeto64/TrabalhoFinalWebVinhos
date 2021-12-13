@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from './../../services/api.service'
-import { AuthService } from './../../services/auth.service'
+import { ApiService } from './../../services/api.service';
+import { AuthService } from './../../services/auth.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -26,7 +27,7 @@ export class RegisterComponent implements OnInit {
         console.log(res)
         this._auth.setDataInLocalStorage('userData', JSON.stringify(res.data));
         this._auth.setDataInLocalStorage('token', res.token);
-        this._router.navigate(['login']);
+        this._router.navigate(['home']);
       } else {
         console.log(res)
         alert(res.msg)

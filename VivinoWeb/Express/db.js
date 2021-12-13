@@ -25,6 +25,7 @@ var vinhoSchema = new mongoose.Schema(
     {
         Vinicola: String,
         Nome: String,
+        Preco: String,
         PaisOrigem: String,
         Tipo: String,
         TipoUva: String,
