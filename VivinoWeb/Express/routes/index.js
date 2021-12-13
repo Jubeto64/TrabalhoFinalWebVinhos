@@ -40,9 +40,7 @@ router.post('/registrar', function (req, res, next){
           if(!e){
             var token = jwt.sign({data: docs}, 'secret');
             res.send({status:1 , data: docs, token: token});
-            console.log("Usuário criado com sucesso!");
-            res.json(novo_usuario);
-          } else console.log(e);
+          }
         })
       }
     });
@@ -70,5 +68,7 @@ router.post('/adiciona_vinho', function(req, res){
     }
   })
 });
+
+
 
 module.exports = router;
