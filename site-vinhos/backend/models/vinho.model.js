@@ -10,6 +10,6 @@ const vinhoSchema = new mongoose.Schema({
     rotulo: String
 });
 
-const vinhoModel = mongoose.model("vinhoModel", vinhoSchema);
+const vinhoModel = mongoose.model("Vinho", vinhoSchema);
 
 module.exports = vinhoModel;

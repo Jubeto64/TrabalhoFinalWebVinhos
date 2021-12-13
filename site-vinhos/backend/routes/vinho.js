@@ -1,6 +1,6 @@
 var express = require('express');
 const mongoose = require('mongoose');
-const vinhoModel = require('../models/vinho.model');
+const Vinhos = require('../models/vinho.model');
 var router = express.Router();
 
 router.post('/', async (req, res) => {
@@ -13,9 +13,9 @@ router.post('/', async (req, res) => {
     vinhoArray.tipoUva = tipoUva;
     vinhoArray.harmonizacao = harmonizacao;
     vinhoArray.rotulo = rotulo;
-    let vinho = new vinhoModel(vinhoArray);
-    await vinho.save();
-    res.json(vinho);
+    let vinhoEntry = new Vinhos(vinhoArray);
+    await vinhoEntry.save();
+    res.json(vinhoEntry);
 });
 
 module.exports = router;
