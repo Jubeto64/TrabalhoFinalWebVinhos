@@ -1,7 +1,7 @@
-var mongoose = require('mongoose'); 
+var mongoose = require('mongoose');
 const URI = `mongodb+srv://mongodbUser:admin123@vivinoprojetowebdb.4a2c0.mongodb.net/VivinoDB?retryWrites=true&w=majority`;
-    
-const connectDB = ()=>{
+
+const connectDB = () => {
     mongoose.connect(URI, {
         useUnifiedTopology: true,
         useNewUrlParser: true
@@ -9,37 +9,31 @@ const connectDB = ()=>{
     console.log("DB connected...");
 }
 
-var userSchema = new mongoose.Schema(
-    {
-        Usuario: String,
-        Email: String,
-        Senha: String
-    },
-    {
-        collection: 'user',
-        versionKey: false
-    }
-);
+var userSchema = new mongoose.Schema({
+    Usuario: String,
+    Email: String,
+    Senha: String
+}, {
+    collection: 'user',
+    versionKey: false
+});
 
-var vinhoSchema = new mongoose.Schema(
-    {
-        Vinicola: String,
-        Nome: String,
-        Preco: String,
-        PaisOrigem: String,
-        Tipo: String,
-        TipoUva: String,
-        Harmonizacao: String,
-        Rotulo: String
-    },
-    {
-        collection: "vinho",
-        versionKey: false
-    }
-);
+var vinhoSchema = new mongoose.Schema({
+    Vinicola: String,
+    Nome: String,
+    Preco: Number,
+    PaisOrigem: String,
+    Tipo: String,
+    TipoUva: String,
+    Harmonizacao: String,
+    Rotulo: String
+}, {
+    collection: "vinho",
+    versionKey: false
+});
 
 
-module.exports = { 
+module.exports = {
     Mongoose: mongoose,
     UserSchema: userSchema,
     VinhoSchema: vinhoSchema,

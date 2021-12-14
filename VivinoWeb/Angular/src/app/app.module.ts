@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { AuthModule } from './auth/auth.module';
 import { FormsModule } from '@angular/forms';
+import { ListaVinhosModule } from './lista-vinhos/lista-vinhos.module';
 
 
 
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     RouterModule,
     HttpClientModule,
     FormsModule,
-    AuthModule
+    AuthModule,
+    ListaVinhosModule
   ],
   providers: [],
   bootstrap: [AppComponent]

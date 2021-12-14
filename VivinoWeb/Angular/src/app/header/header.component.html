@@ -17,20 +17,20 @@
             <div *ngIf='this.isLogin'>
                 <ul class="navbar-nav">
                     <li class="nav-link" style="padding-right: 50px;">
-                        <a class="nav-link" [routerLink] = "['login']" routerLinkActive = "active">Usuário</a>
+                        <a class="nav-link" [routerLink] = "['login']" >Usuário</a>
                     </li>
                     <li class="nav-link" style="padding-right: 30px;">
-                        <a class="nav-link" [routerLink] = "['vinhos']" routerLinkActive = "active">Meus vinhos</a>
+                        <a class="nav-link" [routerLink] = "['lista_vinhos']" >Meus vinhos</a>
                     </li>
                 </ul>
             </div>
             <div *ngIf='!this.isLogin'>
                 <ul class="navbar-nav">
                     <li class="nav-link" style="padding-right: 50px;">
-                        <a class="nav-link" [routerLink] = "['login']" routerLinkActive = "active">Login</a>
+                        <a class="nav-link" [routerLink] = "['login']" >Login</a>
                     </li>
                     <li class="nav-link" style="padding-right: 30px;">
-                        <a class="nav-link" [routerLink] = "['registrar']" routerLinkActive = "active">Registrar</a>
+                        <a class="nav-link" [routerLink] = "['registrar']" >Registrar</a>
                     </li>
                 </ul>
             </div>
