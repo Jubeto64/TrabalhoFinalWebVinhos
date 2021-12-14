@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'lista_vinhos', loadChildren: () => import('./lista-vinhos/lista-vinhos.module').then(m => m.ListaVinhosModule) },
   { path: 'vinho', loadChildren: () => import('./vinho/vinho.module').then(m => m.VinhoModule) },
   { path: 'vinho_user', loadChildren: () => import('./vinho-user/vinho-user.module').then(m => m.VinhoUserModule) },
+  { path: 'cadastra_vinhos', loadChildren: () => import('./cadastra-vinhos/cadastra-vinhos.module').then(m => m.CadastraVinhosModule) },
 ];
 
 @NgModule({
