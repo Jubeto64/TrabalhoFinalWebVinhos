@@ -1,30 +1,30 @@
 <div class='row m-0 w-100'>
     <div class='col-md-4 offset-4 mt-5'>
         <h4>Cadastramento de Vinhos</h4>
-        <form>
+        <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
             <div class='form-group'>
                 <label for="label" class="form-label">Rótulo do Vinho</label>
-                <input class='form-control' type="file" id="label" name="label" ngModel>
+                <input class='form-control' type="file" id="stamp" name="stamp" ngModel>
             </div>
             <br>
             <div class='form-group'>
                 <input class='form-control' type="text" id="name" name="name" placeholder="Nome do Vinho" ngModel>
             </div>
             <div class='form-group'>
-                <input class='form-control' type="text" id="winery" name="winery" placeholder="Vinícola" ngModel>
+                <input class='form-control' type="text" id="vineyard" name="vineyard" placeholder="Vinícola" ngModel>
             </div>
             
             <div class='form-group'>
-                <input class='form-control' type="text" id="country" name="country" placeholder="País de origem" ngModel>
+                <input class='form-control' type="text" id="origin" name="origin" placeholder="País de origem" ngModel>
             </div>
             <div class='form-group'>
                 <input class='form-control' type="text" id="type" name="type" placeholder="Tipo do Vinho" ngModel>
             </div>
             <div class='form-group'>
-                <input class='form-control' type="text" id="grape_type" name="grape_type" placeholder="Tipo de Uva" ngModel>
+                <input class='form-control' type="text" id="grapeType" name="grapeType" placeholder="Tipo de Uva" ngModel>
             </div>
             <div class='form-group'>
-                <input class='form-control' type="text" id="food_matching" name="food_matching" placeholder="Harmonização com comidas" ngModel>
+                <input class='form-control' type="text" id="harmonization" name="harmonization" placeholder="Harmonização com comidas" ngModel>
             </div>
             <div class='form-group'>
                 <input class='form-control' type="text" id="price" name="price" placeholder="Preço" ngModel>
