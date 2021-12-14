@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+}
+
+.text-center {
+    background-color: #fafafa;
+}
+
+.vinho_page_button {
+    background: #ffffff;
+    border-color: #e8e7e6;
+}
+
+.sproduct .imagem {
+    max-width: 60%;
+}
+
+.row2 {
+    padding-top: 2em;
+}
+
+.vinho_row {
+    background-color: #ffffff;
+}

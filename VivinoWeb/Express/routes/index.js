@@ -49,7 +49,7 @@ router.get('/lista_vinhos', function(req, res) {
     var Vinhos = db.Mongoose.model('vinho', db.VinhoSchema, 'vinho');
     Vinhos.find().lean().exec(function(e, docs) {
         if (!e) {
-            res.send({ status: 1, data: docs[0] });
+            res.send({ status: 1, data: docs });
         } else {
             console.log("Erro ao acessar o banco!");
             res.send({ status: 0, data: e });
