@@ -9,12 +9,9 @@ const routes: Routes = [
   { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
   { path: 'lista_vinhos', loadChildren: () => import('./lista-vinhos/lista-vinhos.module').then(m => m.ListaVinhosModule) },
   { path: 'vinho', loadChildren: () => import('./vinho/vinho.module').then(m => m.VinhoModule) },
-<<<<<<< Updated upstream
-  { path: 'vinho_user', loadChildren: () => import('./vinho-user/vinho-user.module').then(m => m.VinhoUserModule) },
   { path: 'cadastra_vinhos', loadChildren: () => import('./cadastra-vinhos/cadastra-vinhos.module').then(m => m.CadastraVinhosModule) },
-=======
->>>>>>> Stashed changes
-];
+]
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
