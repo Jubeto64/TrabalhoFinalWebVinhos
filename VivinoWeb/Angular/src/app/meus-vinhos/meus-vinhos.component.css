@@ -23,3 +23,12 @@ h4 {
 table{
     width: 100%;
 }
+
+.adiciona{
+    float: right;
+}
+
+.nav-link{
+    color: white;
+    font-size: 20px;
+}
