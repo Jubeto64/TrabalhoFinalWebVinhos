@@ -57,6 +57,34 @@ router.get('/lista_vinhos', function(req, res) {
     })
 })
 
+router.get('/lista_vinhos_usuario', function(req, res) {
+    console.log('req.query.id_usuario');
+    console.log(req.query.id_usuario);
+
+    var ListaVinhos = []
+
+    //Recupera a lista de vinhos do usuário
+    var Usuarios = db.Mongoose.model('user', db.UserSchema, 'user');
+    Usuarios.find({_id: req.query.id_usuario}).lean().exec(function(e, docs) {
+        if (!e) {
+            if(docs[0].ListaVinhos){
+                ListaVinhos = [...docs[0].ListaVinhos];
+            }
+
+            //Consulta os vinhos da lista do usuário
+            var Vinhos = db.Mongoose.model('vinho', db.VinhoSchema, 'vinho');
+            Vinhos.find({_id:{ "$in" : ListaVinhos}}).lean().exec(function(e, docs) {
+                if (!e) {
+                    res.send({ status: 1, data: docs });
+                } else {
+                    console.log("Erro ao acessar o banco!");
+                    res.send({ status: 0, data: e });
+                }
+            })
+        }
+    }) 
+})
+
 router.post('/adiciona_vinho', function(req, res) {
     var novo = {
         Vinicola: req.body.vineyard,

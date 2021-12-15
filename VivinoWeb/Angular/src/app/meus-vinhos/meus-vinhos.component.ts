@@ -20,7 +20,10 @@ export class MeusVinhosComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._api.getTypeRequest('lista_vinhos').subscribe((res: any) => {
+    let value = {id_usuario: this._auth.getUserDetails()[0]._id}
+    console.log('Your form data : ' + value.id_usuario);
+    this._api.getTypeRequest('lista_vinhos_usuario?id_usuario='+value.id_usuario).subscribe((res: any) => {
+
       if(res.status){
         this.docs = res.data;
         console.log(this.docs);
