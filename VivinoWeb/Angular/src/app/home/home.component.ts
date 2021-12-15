@@ -21,11 +21,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this._api.getTypeRequest('lista_vinhos').subscribe((res: any) => {
-      if(res.status){
+      if (res.status) {
+
         this.docs = res.data;
         this._router.navigate(['home'])
       } else {
-        alert(res.msg)
+        alert(res.data)
       }
     }, (err: { [x: string]: { message: any; }; }) => {
       this.errorMessage = err['error'].message;

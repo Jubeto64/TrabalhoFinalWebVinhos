@@ -8,6 +8,7 @@ import { AuthService } from './../services/auth.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
 export class HeaderComponent implements OnInit {
   isLogin: boolean = false
   errorMessage: any
@@ -16,7 +17,7 @@ export class HeaderComponent implements OnInit {
     private _auth: AuthService,
     private _router: Router
     
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.isUserLogin();
@@ -26,10 +27,5 @@ export class HeaderComponent implements OnInit {
     if(this._auth.getUserDetails() != null) {
       this.isLogin = true;
     }
-  }
-  
-  logout() {
-    this._auth.clearStorage()
-    this._router.navigate(['home']);
   }
 }
