@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { AuthModule } from './auth/auth.module';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,7 @@ import { FormsModule } from '@angular/forms';
     RouterModule,
     HttpClientModule,
     FormsModule,
-    AuthModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

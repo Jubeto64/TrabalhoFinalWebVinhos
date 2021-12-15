@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './../services/api.service';
-import { AuthService } from './../services/auth.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,21 +8,24 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   isLogin: boolean = false
-  user_id: any
   errorMessage: any
   docs: any
+  reload = 0
   constructor(
-    private _api: ApiService,
-    private _auth: AuthService,
-    private _router: Router,
+    private _api: ApiService
   ) { }
 
   ngOnInit() {
+    if (!localStorage.getItem('foo')) { 
+      localStorage.setItem('foo', 'no reload') 
+      location.reload() 
+    } else {
+      localStorage.removeItem('foo') 
+    }
+    
     this._api.getTypeRequest('lista_vinhos').subscribe((res: any) => {
       if (res.status) {
-
         this.docs = res.data;
-        this._router.navigate(['home'])
       } else {
         alert(res.data)
       }
