@@ -11,6 +11,7 @@ import { AuthService } from './../services/auth.service';
 
 export class HeaderComponent implements OnInit {
   isLogin: boolean = false
+  userName: any
   errorMessage: any
   constructor(
     private _api: ApiService,
@@ -26,6 +27,8 @@ export class HeaderComponent implements OnInit {
   isUserLogin(){
     if(this._auth.getUserDetails() != null) {
       this.isLogin = true;
+      this.userName = this._auth.getUserDetails()[0].Usuario
+      console.log(this.userName)
     }
   }
 }
