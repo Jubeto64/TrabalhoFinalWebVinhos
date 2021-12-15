@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   isLogin: boolean = false
   errorMessage: any
+  user_id: any
   constructor(
     private _api: ApiService,
     private _auth: AuthService,
@@ -23,10 +24,11 @@ export class LoginComponent implements OnInit {
     console.log('Your form data : ', form.value);
     this._api.postTypeRequest('login', form.value).subscribe((res: any) => {
       if (res.status) {
-        console.log(res)
         this._auth.setDataInLocalStorage('userData', JSON.stringify(res.data));
+        this.user_id = res.data._id;
+        console.log(JSON.stringify(res.data.Usuario));
         this._auth.setDataInLocalStorage('token', res.token);
-        this._router.navigate(['home'])
+        this._router.navigate(['']);
       } else {
       }
     }, (err: { [x: string]: { message: any; }; }) => {
@@ -41,6 +43,6 @@ export class LoginComponent implements OnInit {
   }
   logout() {
     this._auth.clearStorage()
-    this._router.navigate(['home']);
+    this._router.navigate(['']);
   }
 }

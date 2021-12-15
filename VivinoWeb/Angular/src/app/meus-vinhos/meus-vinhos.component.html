@@ -1,0 +1,39 @@
+<div class="text-center center-div">
+    <div class="container w-100 border py-4">
+        <div class="title pb-5">
+            <h2 class="font-weight-bold">Meus vinhos</h2>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <th>Nome</th>
+                    <th>Imagem</th>
+                    <th>Preço</th>
+                    <th>Quantidade<br>no<br>Estoque</th>
+                    <th>Caracteristicas</th>
+                    <th>Descrição</th>
+                    <th>Categoria</th>
+                    <th>Transportadoras</th>
+                </tr>
+                <ng-container *ngFor="let doc of docs">
+                    <tr>
+                        <td>{{doc.Nome}}</td>
+                        <td>{{doc.Vinicola}}</td>
+                        <td>{{doc.Preco}}</td>
+                        <td>{{doc.PaisOrigem}}</td>
+                        <td>{{doc.Tipo}}</td>
+                        <td>{{doc.TipoUva}}</td>
+                        <td>{{doc.Harmonizacao}}</td>
+                        <td>{{doc.Rotulo}}</td>
+                        <td>
+                            <form action="id_edita_produto" method="post">
+                                <input type="hidden" value="{{doc._id}}" name="id">
+                                <button type="submit" class="btn btn-success rounded-pill">Detalhes</button>
+                            </form>
+                        </td>
+                    </tr>
+                </ng-container>
+            </table>
+        </div>
+    </div>
+</div>

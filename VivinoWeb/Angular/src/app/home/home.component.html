@@ -1,25 +1,27 @@
 <div class="text-center center-div">
     <div class="container w-100 py-4">
         <section class="container sproduct my-6 pt-5" style="padding-left: 40%">
-            <div class="row mt-5 vinho_row border" *ngFor="let doc of docs;">
-                <!--<button class="vinho_page_button ">-->
-                <div class="col-lg-5 col-md-12 col-12">
-                    <img class="img-fluid w-100 imagem" src="assets/vinho.png" />
-                </div>
-                <div class="col-lg-5 col-md-12 col-12 row2">
-                    <h2>
-                        {{doc.Nome}}
-                    </h2>
-                    <h5 class="mb-4">
-                        {{doc.PaisOrigem}}
-                    </h5>
-                    <button class="btn btn-success rounded-pill" style="opacity: 1; transition: 0.3s all">
+            <div class="row mt-5 vinho_row border">
+                <ng-container *ngFor="let doc of docs;">
+                    <!--<button class="vinho_page_button ">-->
+                    <div class="col-lg-5 col-md-12 col-12">
+                        <img class="img-fluid w-100 imagem" src="assets/vinho.png" />
+                    </div>
+                    <div class="col-lg-5 col-md-12 col-12 row2">
+                        <h2>
+                            {{doc.Nome}}
+                        </h2>
+                        <h5 class="mb-4">
+                            {{doc.PaisOrigem}}
+                        </h5>
+                        <button class="btn btn-success rounded-pill" style="opacity: 1; transition: 0.3s all">
                             <h2>
                                 R${{doc.Preco}}
                             </h2>
                         </button>
-                </div>
-                <!--</button>-->
+                    </div>
+                    <!--</button>-->
+                </ng-container>
             </div>
         </section>
     </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from './../services/api.service';
 import { AuthService } from './../services/auth.service';
@@ -15,14 +15,21 @@ export class HeaderComponent implements OnInit {
     private _api: ApiService,
     private _auth: AuthService,
     private _router: Router
+    
   ) { }
 
   ngOnInit() {
     this.isUserLogin();
   }
+
   isUserLogin(){
     if(this._auth.getUserDetails() != null) {
       this.isLogin = true;
     }
+  }
+  
+  logout() {
+    this._auth.clearStorage()
+    this._router.navigate(['home']);
   }
 }

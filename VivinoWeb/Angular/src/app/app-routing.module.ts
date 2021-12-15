@@ -4,12 +4,12 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
-  {path: 'registrar', component: RegisterComponent},
-  { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
-  { path: 'lista_vinhos', loadChildren: () => import('./lista-vinhos/lista-vinhos.module').then(m => m.ListaVinhosModule) },
+  { path: 'login', component: LoginComponent},
+  { path: 'registrar', component: RegisterComponent},
+  { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
   { path: 'vinho', loadChildren: () => import('./vinho/vinho.module').then(m => m.VinhoModule) },
   { path: 'cadastra_vinhos', loadChildren: () => import('./cadastra-vinhos/cadastra-vinhos.module').then(m => m.CadastraVinhosModule) },
+  { path: 'meus_vinhos', loadChildren: () => import('./meus-vinhos/meus-vinhos.module').then(m => m.MeusVinhosModule) },
 ]
 
 

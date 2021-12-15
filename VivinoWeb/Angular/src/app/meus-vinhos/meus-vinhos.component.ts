@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './../services/api.service';
 import { AuthService } from './../services/auth.service';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-meus-vinhos',
+  templateUrl: './meus-vinhos.component.html',
+  styleUrls: ['./meus-vinhos.component.css']
 })
-export class HomeComponent implements OnInit {
-  isLogin: boolean = false
+export class MeusVinhosComponent implements OnInit {
   user_id: any
   errorMessage: any
   docs: any
@@ -23,7 +23,8 @@ export class HomeComponent implements OnInit {
     this._api.getTypeRequest('lista_vinhos').subscribe((res: any) => {
       if(res.status){
         this.docs = res.data;
-        this._router.navigate(['home'])
+        console.log(this.docs);
+        this._router.navigate(['meus_vinhos'])
       } else {
         alert(res.msg)
       }
@@ -31,4 +32,5 @@ export class HomeComponent implements OnInit {
       this.errorMessage = err['error'].message;
     });
   }
+
 }
