@@ -70,13 +70,13 @@ router.post('/adiciona_vinho', function(req, res) {
     }
     var Vinhos = db.Mongoose.model('vinho', db.VinhoSchema, 'vinho');
     var novo_vinho = new Vinhos(novo);
-    novo_vinho.save(function(err) {
+    novo_vinho.save(function(err, docs) {
         if (err) {
-            console.log("Error " + err.message);
+            res.send({ status: 0, data: err });
             return err;
         } else {
-            console.log("Vinho adicionado com sucesso!");
-            res.json(novo_vinho)
+            console.log("Vinho cadastrado com sucesso!")
+            res.send({ status: 1, data: docs });
         }
     })
 });

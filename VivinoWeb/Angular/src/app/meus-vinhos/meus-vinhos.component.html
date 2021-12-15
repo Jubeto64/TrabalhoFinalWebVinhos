@@ -3,19 +3,19 @@
         <div class="title pb-5">
             <h2 class="font-weight-bold">Meus vinhos</h2>
         </div>
-        <button class="adiciona btn btn-success rounded-pill nav-link">Adicionar vinhos</button>
+        <button class="adiciona btn btn-success rounded-pill nav-link" [routerLink]="['/cadastra_vinhos']">Cadastrar</button>
         <br><br><hr/>
         <div>
             <table>
                 <tr>
                     <th>Nome</th>
-                    <th>Imagem</th>
+                    <th>Vinicola</th>
                     <th>Preço</th>
-                    <th>Quantidade<br>no<br>Estoque</th>
-                    <th>Caracteristicas</th>
-                    <th>Descrição</th>
-                    <th>Categoria</th>
-                    <th>Transportadoras</th>
+                    <th>Pais de Origem</th>
+                    <th>Tipo</th>
+                    <th>Tipo de uva</th>
+                    <th>Harmonização</th>
+                    <th>Rótulo</th>
                 </tr>
                 <ng-container *ngFor="let doc of docs">
                     <tr>
@@ -27,7 +27,7 @@
                         <td>{{doc.TipoUva}}</td>
                         <td>{{doc.Harmonizacao}}</td>
                         <td>{{doc.Rotulo}}</td>
-                        <td>
+                        <td class="no_border">
                             <form action="id_edita_produto" method="post">
                                 <input type="hidden" value="{{doc._id}}" name="id">
                                 <button type="submit" class="btn btn-success rounded-pill">Detalhes</button>

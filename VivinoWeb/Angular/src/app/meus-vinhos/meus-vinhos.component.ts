@@ -32,5 +32,4 @@ export class MeusVinhosComponent implements OnInit {
       this.errorMessage = err['error'].message;
     });
   }
-
 }

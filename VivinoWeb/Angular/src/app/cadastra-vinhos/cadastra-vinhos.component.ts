@@ -23,13 +23,12 @@ export class CadastraVinhosComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     console.log('Your form data : ', form.value);
-
     this._api.postTypeRequest('adiciona_vinho', form.value).subscribe((res: any) => {
       if (res.status) {
-        console.log(res)
+        alert("Vinho cadastrado com sucesso!");
+        this._router.navigate(['meus_vinhos'])
       } else {
-        console.log(res)
-        alert(res.msg)
+        alert("Erro ao cadastrar: " + res.data)
       }
     }, (err: { [x: string]: { message: any; }; }) => {
       this.errorMessage = err['error'].message;
