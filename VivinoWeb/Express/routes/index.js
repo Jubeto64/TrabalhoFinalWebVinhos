@@ -66,7 +66,7 @@ router.post('/adiciona_vinho', function(req, res) {
         Tipo: req.body.type,
         TipoUva: req.body.grapeType,
         Harmonizacao: req.body.harmonization,
-        Rotulo: req.body.stamp
+        Rotulo: req.body.stamp,
     }
     var Vinhos = db.Mongoose.model('vinho', db.VinhoSchema, 'vinho');
     var novo_vinho = new Vinhos(novo);
@@ -81,6 +81,11 @@ router.post('/adiciona_vinho', function(req, res) {
     })
 });
 
-
+/*router.get('/reviews', function(req, res) {
+    var novo = {
+        Texto: req.body.text,
+        Estrelas: req.body
+    }
+})*/
 
 module.exports = router;

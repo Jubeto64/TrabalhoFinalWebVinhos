@@ -26,16 +26,27 @@ var vinhoSchema = new mongoose.Schema({
     Tipo: String,
     TipoUva: String,
     Harmonizacao: String,
-    Rotulo: String
+    Rotulo: String,
 }, {
     collection: "vinho",
     versionKey: false
 });
 
+var reviewSchema = new mongoose.Schema({
+    Texto: String,
+    Estrelas: Number,
+    id_Usuário: String,
+    id_Vinho: String,
+    Data: Date
+}, {
+    collection: "vinho",
+    versionKey: false
+});
 
 module.exports = {
     Mongoose: mongoose,
     UserSchema: userSchema,
     VinhoSchema: vinhoSchema,
+    ReviewSchema: reviewSchema,
     connectDB
 }
