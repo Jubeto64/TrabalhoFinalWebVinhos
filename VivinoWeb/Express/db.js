@@ -12,7 +12,8 @@ const connectDB = () => {
 var userSchema = new mongoose.Schema({
     Usuario: String,
     Email: String,
-    Senha: String
+    Senha: String,
+    ListaVinhos: Array
 }, {
     collection: 'user',
     versionKey: false

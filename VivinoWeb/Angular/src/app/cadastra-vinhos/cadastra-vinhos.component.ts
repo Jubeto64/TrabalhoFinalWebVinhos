@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class CadastraVinhosComponent implements OnInit {
   errorMessage: any
+  isLogin: boolean = false
   
   constructor(
     private _api: ApiService,
@@ -18,10 +19,18 @@ export class CadastraVinhosComponent implements OnInit {
     private _router: Router,
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.isUserLogin();
+  }
+
+  isUserLogin(){
+    if(this._auth.getUserDetails() != null) {
+      this.isLogin = true;
+    }
   }
 
   onSubmit(form: NgForm) {
+    form.value['id_usuario'] = this._auth.getUserDetails()[0]._id
     console.log('Your form data : ', form.value);
     this._api.postTypeRequest('adiciona_vinho', form.value).subscribe((res: any) => {
       if (res.status) {

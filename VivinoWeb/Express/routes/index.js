@@ -68,17 +68,49 @@ router.post('/adiciona_vinho', function(req, res) {
         Harmonizacao: req.body.harmonization,
         Rotulo: req.body.stamp,
     }
-    var Vinhos = db.Mongoose.model('vinho', db.VinhoSchema, 'vinho');
-    var novo_vinho = new Vinhos(novo);
-    novo_vinho.save(function(err, docs) {
-        if (err) {
-            res.send({ status: 0, data: err });
-            return err;
-        } else {
-            console.log("Vinho cadastrado com sucesso!")
-            res.send({ status: 1, data: docs });
+
+    var ListaVinhos = []
+
+    //Recupera a lista de vinhos do usuário
+    var Usuarios = db.Mongoose.model('user', db.UserSchema, 'user');
+    Usuarios.find({_id: req.body.id_usuario}).lean().exec(function(e, docs) {
+        if (!e) {
+            if(docs[0].ListaVinhos){
+                ListaVinhos = [...docs[0].ListaVinhos];
+            }
+
+            //Verifica se o vinho já existe antes de cadastrar
+            var Vinhos = db.Mongoose.model('vinho', db.VinhoSchema, 'vinho');
+            Vinhos.find({ Nome: req.body.name }).lean().exec(function(e, docs) {
+                if (!e) {
+                    if(docs.length > 0){
+                        ListaVinhos.push(String(docs[0]._id));
+                        console.log(ListaVinhos);
+                    }else{
+                        var novo_vinho = new Vinhos(novo);
+                        novo_vinho.save(function(err, docs) {
+                            if (err) {
+                                res.send({ status: 0, data: err });
+                                return err;
+                            } else {
+                                console.log("Vinho cadastrado com sucesso!")
+                                ListaVinhos.push(String(docs._id));
+                            }
+                        })
+                    }
+
+                    //Atualisa a lista de vinhos do usuário
+                    Usuarios.updateOne({_id: req.body.id_usuario}, {ListaVinhos}, function (err, docs) {
+                        if (err)    console.log("Erro ao acessar o banco!"); 
+                        else    res.send({ status: 1, data: docs });
+                    });
+
+                } else {
+                    console.log("Erro ao acessar o banco!");
+                }
+            })
         }
-    })
+    })           
 });
 
 /*router.get('/reviews', function(req, res) {
