@@ -1,0 +1,11 @@
+.sproduct input{
+    width: 50px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.vinho_template h5{
+    justify-content: left;
+}

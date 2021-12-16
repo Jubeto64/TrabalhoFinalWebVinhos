@@ -3,22 +3,31 @@
 }
 
 .text-center {
-    background-color: #fafafa;
+    background-color: #e0e0e0;
 }
 
-.vinho_page_button {
-    background: #ffffff;
-    border-color: #e8e7e6;
-}
-
-.sproduct .imagem {
-    max-width: 60%;
+.vinho_template .imagem {
+    max-width: 40%;
 }
 
 .row2 {
-    padding-top: 2em;
+    padding-top: 4em;
+}
+
+.row2 a{
+    text-decoration: none;
+    color: black;
+}
+
+.row2 a:hover{
+    color: orange;
 }
 
 .vinho_row {
     background-color: #ffffff;
+}
+
+.button{
+    opacity: 1; 
+    transition: 0.3s all;
 }

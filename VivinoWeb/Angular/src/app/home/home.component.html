@@ -1,24 +1,27 @@
 <div class="text-center center-div">
     <div class="container w-100 py-4">
-        <section class="container sproduct my-6 pt-5" style="padding-left: 40%">
-            <div class="row mt-5 vinho_row border">
+        <section class="container vinho_template my-6 pt-5">
+            <div class="row mt-5 vinho_row border vinhos">
                 <ng-container *ngFor="let doc of docs;">
                     <div class="col-lg-5 col-md-12 col-12">
-                        <img class="img-fluid w-100 imagem" src="assets/vinho.png" />
+                        <a (click)="abrir_produto(doc._id)"><img class="img-fluid w-100 imagem" src="assets/vinho.png" /></a>
                     </div>
                     <div class="col-lg-5 col-md-12 col-12 row2">
                         <h2>
-                            {{doc.Nome}}
+                            <input type="hidden" value="{{doc._id}}">
+                            <a [routerLink]="['vinho']">{{doc.Nome}}</a>
                         </h2>
                         <h5 class="mb-4">
                             {{doc.PaisOrigem}}
                         </h5>
-                        <button class="btn btn-success rounded-pill" style="opacity: 1; transition: 0.3s all">
+                        <button class="btn btn-success rounded-pill button" value="{{doc._id}}" [routerLink]="['vinho']">
                             <h2>
                                 R${{doc.Preco}}
                             </h2>
                         </button>
                     </div>
+                    <br>
+                    <hr/>
                 </ng-container>
             </div>
         </section>

@@ -57,6 +57,19 @@ router.get('/lista_vinhos', function(req, res) {
     })
 })
 
+router.post('/get_vinho_by_id', function(req, res) {
+    id = req.body.id
+    var Vinhos = db.Mongoose.model('vinho', db.VinhoSchema, 'vinho');
+    Vinhos.find({"_id": id}).lean().exec(function(e, docs) {
+        if (!e) {
+            res.send({ status: 1, data: docs[0] });
+        } else {
+            console.log("Erro ao acessar o banco!");
+            res.send({ status: 0, data: e });
+        }
+    })
+})
+
 router.get('/lista_vinhos_usuario', function(req, res) {
     console.log('req.query.id_usuario');
     console.log(req.query.id_usuario);
@@ -141,11 +154,49 @@ router.post('/adiciona_vinho', function(req, res) {
     })           
 });
 
-/*router.get('/reviews', function(req, res) {
+router.get('/reviews', function(req, res) {
+    var filtro = {
+        id_Vinho: req.body.id
+    }
+    var Reviews = db.Mongoose.model('review', db.ReviewSchema, 'review');
+    Reviews.find(filtro).lean().exec(function(e, docs) {
+        if (!e) {
+            var Usuarios = db.Mongoose.model('user', db.UserSchema, 'user');
+            Usuarios.find().lean().exec(function(e, docs2) {
+                if (!e && docs.length > 0) {
+                    res.send({ status: 1, data: docs, data2: docs2 });
+                } else {
+                    console.log("Erro ao buscar reviews!");
+                    res.send({ status: 0, data: e });
+                }
+            })    
+        } else {
+            console.log("Erro ao acessar o banco!");
+            res.send({ status: 0, data: e });
+        }
+    })
+})
+
+router.post('/reviews', function(req, res) {
     var novo = {
         Texto: req.body.text,
-        Estrelas: req.body
+        Estrelas: req.body.rating,
+        id_Usuario: req.body.user_id,
+        nome_Usuario: req.body.user_name,
+        id_Vinho: req.body.vinho_id,
+        Data: new Date.now()
     }
-})*/
+    var Reviews = db.Mongoose.model('review', db.ReviewSchema, 'review');
+    var nova_review = new Vinhos(novo);
+    nova_review.save(function(err, docs) {
+        if (err) {
+            res.send({ status: 0, data: err });
+            return err;
+        } else {
+            console.log("Vinho cadastrado com sucesso!")
+            res.send({ status: 1, data: docs });
+        }
+    })
+})
 
 module.exports = router;

@@ -1,0 +1,41 @@
+<div class="text-center center-div">
+    <div class="container w-100">
+        <div class="title pb-5">
+            <h2 class="font-weight-bold">Página do Produto</h2>
+        </div>
+        <section class="container vinho_template my-6 pt-5">
+            <div class="row mt-5">
+                <div class="col-lg-5 col-md-12 col-12">
+                    <img class="img-fluid w-100 imagem" src="assets/vinho.png"/>
+                </div>
+                <div class="col-lg-5 col-md-12 col-12">
+                    <h2>{{docs.Nome}}</h2>
+                    <h5 class="mb-4">{{docs.PaisOrigem}}</h5>
+                    <h2>R$ {{docs.Preco}}</h2>
+                    <br>
+                    <h5 class="mb-4">{{docs.Tipo}}</h5>
+                    <h5 class="mb-4">{{docs.tipoUva}}</h5>
+                    <h5>{{docs.Harmonizacao}}</h5>
+                    <br><br><br>
+                    <h3>mediaEstrelas</h3>
+                    <br>
+                    <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+                        <div class='form-group'>
+                            <textarea rows="4" cols = "64" name="text"></textarea>
+                        </div>
+                        <div class='form-group'>
+                            <input class='form-control' type="number" name="stars" min="1" max="5" value="1">
+                        </div>
+                        <br>
+                        <input class='btn btn-success rounded-pill button' type="submit" value="Fazer review">
+                    </form>
+                    <ng-container *ngFor="let review of reviews;">
+                        review.Texto
+                        review.nome_Usuario
+                        <br>
+                    </ng-container>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

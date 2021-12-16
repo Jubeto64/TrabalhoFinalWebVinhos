@@ -1,3 +1,13 @@
 .container-fluid .navbar-brand {
-    font-size: 90px;
+    font-size: 30px;
+    color: red;
+}
+
+.nav-link{
+    color: black;
+    font-size: 18px;
+}
+
+*{
+    background-color: white;
 }
