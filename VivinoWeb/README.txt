@@ -1,3 +1,5 @@
+O código foi testado tanto em Windows quanto em Linux
+
 Necessário: Node.js
 
 Dependências:
