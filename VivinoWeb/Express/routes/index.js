@@ -127,6 +127,11 @@ router.post('/adiciona_vinho', function(req, res) {
                     if(docs.length > 0){
                         ListaVinhos.push(String(docs[0]._id));
                         console.log(ListaVinhos);
+
+                        Usuarios.updateOne({_id: req.body.id_usuario}, {ListaVinhos}, function (err, docs) {
+                            if (err)    console.log("Erro ao acessar o banco!"); 
+                            else    res.send({ status: 1, data: docs });
+                        });
                     }else{
                         var novo_vinho = new Vinhos(novo);
                         novo_vinho.save(function(err, docs) {
@@ -136,15 +141,14 @@ router.post('/adiciona_vinho', function(req, res) {
                             } else {
                                 console.log("Vinho cadastrado com sucesso!")
                                 ListaVinhos.push(String(docs._id));
+                                //Atualisa a lista de vinhos do usuário
+                                Usuarios.updateOne({_id: req.body.id_usuario}, {ListaVinhos}, function (err, docs) {
+                                    if (err)    console.log("Erro ao acessar o banco!"); 
+                                    else    res.send({ status: 1, data: docs });
+                                });
                             }
                         })
-                    }
-
-                    //Atualisa a lista de vinhos do usuário
-                    Usuarios.updateOne({_id: req.body.id_usuario}, {ListaVinhos}, function (err, docs) {
-                        if (err)    console.log("Erro ao acessar o banco!"); 
-                        else    res.send({ status: 1, data: docs });
-                    });
+                    }        
 
                 } else {
                     console.log("Erro ao acessar o banco!");
