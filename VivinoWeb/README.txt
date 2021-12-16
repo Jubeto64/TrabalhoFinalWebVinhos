@@ -1,5 +1,5 @@
 Dependências:
-npm install express mongoose bootstrap jquery jsonwebtoken ng5-slider @angular-slider/ngx-slider
+npm i @angular/cli express mongoose bootstrap jquery nodemon jsonwebtoken ng5-slider @angular-slider/ngx-slider
 
 Baixar mongosh:
 https://downloads.mongodb.com/compass/mongosh-1.1.6-win32-x64.zip
