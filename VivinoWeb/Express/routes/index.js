@@ -181,23 +181,26 @@ router.get('/reviews', function(req, res) {
     })
 })
 
-router.post('/reviews', function(req, res) {
+router.post('/nova_review', function(req, res) {
     var novo = {
         Texto: req.body.text,
         Estrelas: req.body.rating,
         id_Usuario: req.body.user_id,
         nome_Usuario: req.body.user_name,
         id_Vinho: req.body.vinho_id,
-        Data: new Date.now()
+        Data: new Date
     }
+
+    console.log('novo review');
+    console.log(novo);
     var Reviews = db.Mongoose.model('review', db.ReviewSchema, 'review');
-    var nova_review = new Vinhos(novo);
+    var nova_review = new Reviews(novo);
     nova_review.save(function(err, docs) {
         if (err) {
             res.send({ status: 0, data: err });
             return err;
         } else {
-            console.log("Vinho cadastrado com sucesso!")
+            console.log("Review cadastrado com sucesso!")
             res.send({ status: 1, data: docs });
         }
     })

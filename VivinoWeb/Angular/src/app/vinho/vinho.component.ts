@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './../services/api.service';
+import { AuthService } from './../services/auth.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
@@ -17,6 +18,7 @@ export class VinhoComponent implements OnInit {
   forms: any
   constructor(
     private _api: ApiService,
+    private _auth: AuthService,
     private _router: Router
   ) { }
 
@@ -44,14 +46,17 @@ export class VinhoComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log(form)
-    this.forms = {
-    }
-    this._api.postTypeRequest('reviews', form.value).subscribe((res: any) => {
+    form.value['user_id'] = this._auth.getUserDetails()[0]._id;
+    form.value['user_name'] = this._auth.getUserDetails()[0].Usuario;
+    form.value['vinho_id'] = this.vinho_id;
+    console.log('Your form data : ');
+    console.log(form.value);
+    this._api.postTypeRequest('nova_review', form.value).subscribe((res: any) => {
       if (res.status) {
-        this.docs = res.data;
+        alert("Review cadastrada com sucesso!");
         this._router.navigate(['']);
       } else {
+        alert("Erro ao cadastrar: ")
       }
     }, (err: { [x: string]: { message: any; }; }) => {
       this.errorMessage = err['error'].message;
