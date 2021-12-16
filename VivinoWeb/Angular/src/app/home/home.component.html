@@ -9,12 +9,12 @@
                     <div class="col-lg-5 col-md-12 col-12 row2">
                         <h2>
                             <input type="hidden" value="{{doc._id}}">
-                            <a [routerLink]="['vinho']">{{doc.Nome}}</a>
+                            <a (click)="abrir_produto(doc._id)">{{doc.Nome}}</a>
                         </h2>
                         <h5 class="mb-4">
                             {{doc.PaisOrigem}}
                         </h5>
-                        <button class="btn btn-success rounded-pill button" value="{{doc._id}}" [routerLink]="['vinho']">
+                        <button class="btn btn-success rounded-pill button" (click)="abrir_produto(doc._id)">
                             <h2>
                                 R${{doc.Preco}}
                             </h2>
