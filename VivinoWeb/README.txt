@@ -18,4 +18,4 @@ cd VivinoWeb/Express -> npm start
 Para rodar: localhost:4200
 
 Uma funcionalidade que não ficou muito clara foi a de logout, que é feita clicando no nome do usuário depois que este já estiver logado.
-As funcionalidades de review e consulta começaram a ser implementadas, com alguns vestígios no código, mas não foram completadas.
+As funcionalidades de review e consulta começaram a ser implementadas, com alguns vestígios no código, as reviews conseguem ser salvas no banco, mas não foram completadas.
