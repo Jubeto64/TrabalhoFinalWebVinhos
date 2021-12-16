@@ -36,6 +36,9 @@ var vinhoSchema = new mongoose.Schema({
 var reviewSchema = new mongoose.Schema({
     Texto: String,
     Estrelas: Number,
+    id_Usuário: String,
+    nome_Usuario: String, 
+    id_Vinho: String,
     Data: Date
 }, {
     collection: "review",
