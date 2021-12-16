@@ -44,9 +44,6 @@ export class VinhoComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log(form)
-    this.forms = {
-    }
     this._api.postTypeRequest('reviews', form.value).subscribe((res: any) => {
       if (res.status) {
         this.docs = res.data;

@@ -21,9 +21,12 @@
                     <br>
                     <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
                         <div class='form-group'>
+                            <p>Review:</p>
                             <textarea rows="4" cols = "64" name="text"></textarea>
                         </div>
+                        <br>
                         <div class='form-group'>
+                            <p>Estrelas para o vinho:</p>
                             <input class='form-control' type="number" name="stars" min="1" max="5" value="1">
                         </div>
                         <br>
